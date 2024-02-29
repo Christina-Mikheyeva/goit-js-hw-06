@@ -1,59 +1,19 @@
-const getUsersWithFriend = (users, friendName) => users.filter(item => item.friends.includes(friendName)) 
+const pizzaPalace = {
+  pizzas: ["Supercheese", "Smoked", "Four meats"],
+  checkPizza(pizzaName) {
+   return this.includes(pizzaName);
+  },
+  order(pizzaName) {
+    const isPizzaAvailable = this;
 
+    if (!isPizzaAvailable) {
+      return `Sorry, there is no pizza named «${pizzaName}»`;
+    }
 
-const allUsers = [
-  {
-    name: "Moore Hensley",
-    friends: ["Sharron Pace"]
+    return `Order accepted, preparing «${pizzaName}» pizza`;
   },
-  {
-    name: "Sharlene Bush",
-    friends: ["Briana Decker", "Sharron Pace"]
-  },
-  {
-    name: "Ross Vazquez",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
-  },
-  {
-    name: "Elma Head",
-    friends: ["Goldie Gentry", "Aisha Tran"]
-  },
-  {
-    name: "Carey Barr",
-    friends: ["Jordan Sampson", "Eddie Strong"]
-  },
-  {
-    name: "Blackburn Dotson",
-    friends: ["Jacklyn Lucas", "Linda Chapman"]
-  },
-  {
-    name: "Sheree Anthony",
-    friends: ["Goldie Gentry", "Briana Decker"]
-  }
-];
+};
 
-console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
-// [
-//   {
-//     name: "Sharlene Bush",
-//     friends: ["Briana Decker", "Sharron Pace"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
-
-console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
-// [
-//   {
-//     name: "Elma Head",
-//     friends: ["Goldie Gentry", "Aisha Tran"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
-
-console.log(getUsersWithFriend(allUsers, "Adrian Cross" )); // []
+console.log(pizzaPalace.order("Big Mike"));
+console.log(pizzaPalace.order("Four meats"));
+console.log(checkPizza(pizzaName));
