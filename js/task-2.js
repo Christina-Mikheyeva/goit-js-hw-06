@@ -1,19 +1,24 @@
-const pizzaPalace = {
-  pizzas: ["Supercheese", "Smoked", "Four meats"],
-  checkPizza(pizzaName) {
-   return this.includes(pizzaName);
-  },
-  order(pizzaName) {
-    const isPizzaAvailable = this;
-
-    if (!isPizzaAvailable) {
-      return `Sorry, there is no pizza named «${pizzaName}»`;
+class Storage {
+    constructor(item) {
+        this.item = item;
+    }
+    getItems() { 
+        return this.item;
     }
 
-    return `Order accepted, preparing «${pizzaName}» pizza`;
-  },
-};
+    addItem(newItem) { 
+        return this.item.push(newItem);
+    }
 
-console.log(pizzaPalace.order("Big Mike"));
-console.log(pizzaPalace.order("Four meats"));
-console.log(checkPizza(pizzaName));
+    removeItem(itemToRemove)  {
+        return this.item.splice(this.item.indexOf(itemToRemove),1);
+    }
+}
+
+
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem("Prolonger");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
